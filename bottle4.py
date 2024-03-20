@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 import pyttsx3
 
-model_path = "bestOjas.pt"  
+model_path = "best.pt"  
 
 model = YOLO(model_path)
 
@@ -39,7 +39,14 @@ while True:
 
                 cv2.putText(frame, str("sign"), (start_point[0], start_point[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
 
-                engine.say("Sign detected")
+                class_id = results[0].boxes.cls[0]
+                id_int = class_id.item()
+                print(results[0].names[(int)(id_int)])
+
+                class_detect = results[0].names[(int)(id_int)]
+                engine.say(class_detect)
+
+                #engine.say("Sign detected")
                 engine.runAndWait()
 
     cv2.imshow("Bottle Detection", frame)
