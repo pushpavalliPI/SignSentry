@@ -1,19 +1,23 @@
 nav,body{
     background-image: url(./mainbg.jpg);
-    background-size: 100%;
+    background-size: 110%;
 }
 /* .container-fluid{
     background-color:rgb(233, 244, 247);
 } */
 h1{
-    padding-top: 170px;
     /* font-family: "Roboto Slab", serif; */
-    font-family: "IBM Plex Sans Condensed", sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    color:aliceblue;
+    color:azure;
     font-size: 180px;
+    margin-top: 300px;
+}
+.favicon{
+  width: 20px;
+  height: 20px;
 }
 .heading {
     animation: fadeInOut 2s alternate;
@@ -41,7 +45,7 @@ button{
     justify-content: space-evenly;
 }
 .btn{
-    font-family: "IBM Plex Sans Condensed", sans-serif;
+    font-family: "DM Sans", sans-serif;
     background-color: aliceblue;
 }
 .enlarge-on-hover {
