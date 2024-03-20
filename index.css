@@ -1,0 +1,66 @@
+nav,body{
+    background-image: url(./mainbg.jpg);
+    background-size: 100%;
+}
+/* .container-fluid{
+    background-color:rgb(233, 244, 247);
+} */
+h1{
+    padding-top: 170px;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color:aliceblue;
+    font-size: 180px;
+}
+.heading {
+    animation: fadeInOut 2s alternate;
+    display: flex;
+    justify-content: center;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+button{
+    width: 120px;
+    height: 50px;
+}
+.tabs{
+    padding-top: 50px;
+    padding-left: 300px;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn{
+    font-family: "IBM Plex Sans Condensed", sans-serif;
+    background-color: aliceblue;
+}
+.enlarge-on-hover {
+    width: 200px;
+    height: 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  .enlarge-on-hover:hover {
+    transform: scale(1.2);
+  }
+  .typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    border-right: .05em solid aliceblue; /* adjust thickness and color of the cursor */
+    animation: typing 2s steps(20, end);
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
