@@ -13,112 +13,32 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link class="favicon" rel="icon" href="./signsentry_yellow.jpg" type="image/x-icon">
     <title>Get Started</title>
-    <style>
-        body {
-            font-family: "DM Sans", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('./croppedmainbg.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: flex-end;
-            /* Align video to top-right corner */
-            align-items: flex-start;
-            /* Align video to top-right corner */
-            height: 100vh;
-            /* background-repeat: no-repeat; */
-        }
-
-        #video-container {
-            width: 70%;
-            max-width: 600px;
-            margin-top: 50px;
-            /* Adjust the margin-top value to move the video down */
-            margin-right: 20px;
-            /* Adjust the right margin for spacing */
-            box-shadow: 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        #video {
-            width: 100%;
-            height: auto;
-            transform: scaleX(-1);
-        }
-
-        #capture-btn {
-            display: block;
-            width: 100%;
-            max-width: 200px;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #capture-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: right;
-        }
-
-        a {
-            margin-right: 20px;
-        }
-
-        li {
-            font-size: 24px;
-        }
-        .box{
-            width: 200px;
-            height: 200px;
-            background-color: aliceblue;
-        }
-        /* .double{
-            width: 400px;
-            height: 200px;
-        }
-        .boxes{
-            display: flex-start;
-            justify-content: space-between;
-            align-items: center;
-        } */
-    </style>
+    <link rel="stylesheet" href="./page2.css">
 </head>
 
 <body>
-    <!-- <div class="boxes">
-        <div class="box"></div>
-        <br>
-        <div class="box double"></div>
-    </div> -->
     <div class="navigation">
-        <ul class="nav nav-underline">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./Page2.html">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./about.html">About Us</a>
-            </li>
-        </ul>
+        <div>
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./Page2.html">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">About Us</a>
+                </li>
+            </ul>
+        </div>
+        
     </div>
-    <div id="video-container">
-        <video id="video" autoplay></video>
+    <div class="video-parent">
+        <div id="video-container">
+            <video id="video" autoplay></video>
+        </div>
     </div>
-
+    
     <script>
         // Get access to the webcam
         navigator.mediaDevices.getUserMedia({ video: true })

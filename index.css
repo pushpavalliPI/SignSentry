@@ -1,14 +1,14 @@
+@media (min-width:720px) and (max-width:992px){
+  .type-container{
+      font-size: 80px;
+  }
+}
+
 nav,body{
-    /* background-image: url(./mainbg.jpg);
-    background-size: 110%; */
     background-color: rgb(0, 0, 0);
     /* background-repeat: no-repeat; */
 }
-/* .container-fluid{
-    background-color:rgb(233, 244, 247);
-} */
 h1{
-    /* font-family: "Roboto Slab", serif; */
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -24,7 +24,7 @@ h1{
 .heading {
     animation: fadeInOut 2s alternate;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   @keyframes fadeInOut {
@@ -44,12 +44,10 @@ button{
     padding-left: 300px;
     max-width: 1400px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .btn{
     font-family: "DM Sans", sans-serif;
-    /* background-image: url(./mainbg.jpg);
-     */
      background-color: rgb(158, 179, 217);
 }
 .enlarge-on-hover {
@@ -65,35 +63,31 @@ button{
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
-    border-right: .05em solid aliceblue; /* adjust thickness and color of the cursor */
-    animation: typing 2s steps(20, end);
-}
-@keyframes typing {
-    from {
-        width: 0;
-    }
+    animation: typing 3s steps(40, end);
 }
 
-@media (min-width:720px) and (max-width:1028px){
-  h1{
-    font-size: 120px;
-  }
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
+
+
 .container {
   position: relative;
-  font-size: 120px; /* Set the font size */
-  font-weight: bold; /* Set the font weight */
-  color: transparent; /* Make text transparent */
+  font-size: 120px;
+  font-weight: bold;
+  color: transparent;
   display: inline-block;
 }
 .container::before {
-  content: "We're SignSentry!"; /* Specify the text */
+  content: "We're SignSentry!";
   position: absolute;
   left: 0;
   top: 0;
-  background-image: url('./mainbg.jpg'); /* Specify the background image */
-  background-size: cover; /* Adjust background image size */
-  -webkit-background-clip: text; /* Clip the text to the background image */
+  background-image: url('./mainbg.jpg');
+  background-size: cover;
+  -webkit-background-clip: text;
   background-clip: text;
-  color: transparent; /* Make text transparent */
+  color: transparent;
 }
+
