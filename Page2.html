@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Found - SignSentry</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>Get Started</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('back.jpg'); /* Assuming the image file is in the same directory */
+            background-image: url('./mainbg.jpg'); 
             background-size: cover;
             background-position: center;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
         #video-container {
             width: 70%;
             max-width: 640px;
-            margin-bottom: 20px;
+            margin: 0 auto;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             overflow: hidden;
@@ -32,25 +30,34 @@
         #video {
             width: 100%;
             height: auto;
-            display: block;
-            margin: 0 auto;
+            transform: scaleX(-1)
         }
 
-        h1 {
-            text-align: center;
+        #capture-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
             color: #fff;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            font-size: 36px;
-            margin-top: 0;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #capture-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>SignSentry</h1>
     <div id="video-container">
         <video id="video" autoplay></video>
     </div>
+    <button id="capture-btn" onclick="captureImage()">Capture Image</button>
 
     <script>
         // Get access to the webcam
@@ -63,6 +70,41 @@
             .catch(function(err) {
                 console.log("An error occurred: " + err);
             });
+
+        // Function to capture image from webcam
+        function captureImage() {
+            var video = document.getElementById('video');
+            var canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            var context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            var imgData = canvas.toDataURL('image/png');
+
+            // Send image data to PHP script to save
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'capture.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send('imgData=' + encodeURIComponent(imgData));
+        }
     </script>
 </body>
 </html>
+
+<?php
+// PHP code for capturing image
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['imgData'])) {
+    $imgData = $_POST['imgData'];
+    $imgData = str_replace('data:image/png;base64,', '', $imgData);
+    $imgData = str_replace(' ', '+', $imgData);
+    $data = base64_decode($imgData);
+    $img = 'captures/' . date("Y-m-d-H-i-s") . '.png';
+    file_put_contents($img, $data);
+    echo "Image captured and saved successfully.";
+}
+?>

@@ -1,11 +1,11 @@
 document.getElementById("navtoyourspace").onclick=function(){
-    window.location.href="yourspace.html"
+    window.location.href="Page2.html"
 }
 document.getElementById("navetogetinfo").onclick=function(){
-    window.location.href="info.html"
+    window.location.href="about.html"
 }
 document.addEventListener('DOMContentLoaded', function() {
-    var text = "Welcome!";
+    var text = "We're Sign Sentry!";
     var index = 0;
     var intervalId = setInterval(function() {
       if (index < text.length) {
@@ -14,5 +14,5 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         clearInterval(intervalId);
       }
-    }, 350); // Adjust the speed of typing here (milliseconds)
+    }, 250); // Adjust the speed of typing here (milliseconds)
   });
